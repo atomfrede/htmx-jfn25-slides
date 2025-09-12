@@ -1,0 +1,134 @@
+== 3. HTMX
+
+== HTMX
+
+[quote,HTMX]
+____
+By removing these constraints, htmx completes HTML as a hypertext
+____
+
+* small js-library (~14k)
+* simplifies AJAX, WebSockets, Server Send Events
+* access all the features declaratively via HTML attributes
+* server answers with (partial) HTML
+
+[.notes]
+--
+* Predecessor `intercooler.js` from ~2014 exact same concept, but dit not gain much traction
+* htmx picked up by different communities (Python, Ruby, Java...)
+--
+
+== HTMX Attributes
+
+* Small set of essential attributes
+[%steps]
+* `hx-get|post|put|delete`
+* `hx-target`
+* `hx-trigger`
+* `hx-swap`
+
+== HTMX
+
+[source,html,highlight="2,3,4,5"]
+----
+<button
+    hx-post="/clicked"
+    hx-trigger="click"
+    hx-target="#parent-div"
+    hx-swap="outerHTML">
+    Click Me!
+</button>
+----
+
+[.notes]
+--
+* When the button is clicked
+* a request to `/clicked` is issued
+* the result will be swapped into element with id `#parent-div`
+* and it will replace the whole element (not just the content)
+--
+
+== JTE
+
+* There are a lot of template engines for java/the jvm
+* Most of them are very mature
+* But nearly none of them is typesafe
+* Many use reflection
+* *does it spark joy?*
+
+[.notes]
+--
+* Without type safety refactoring becomes a nightmare
+* can't see what a page really needs
+* reflection does not play well with native images/graal vm
+--
+
+== JTE
+
+[source,html]
+----
+@import org.example.Page
+
+@param Page page
+
+<head>
+    @if(page.getDescription() != null)
+        <meta name="description" content="${page.getDescription()}">
+    @endif
+    <title>${page.getTitle()}</title>
+</head>
+<body>
+    <h1>${page.getTitle()}</h1>
+    <p>Welcome to my example page!</p>
+</body>
+----
+
+== HOWL - Hypermedia on whatever you like
+
+* Thymeleaf - the feature-rich classic
+* JStachio - typesafe, fast mustache
+* HTMLFLow - DSL approach (better use kotlin)
+* kotlinx.html - Pure kotlin
+* Qute - the quarkus one
+* Spring ViewComponents
+
+[.notes]
+--
+* it should support "fragments", partial HTML with ease
+* typesafe is better
+* ViewComponents: UI Components build on server side using JTE (Thymeleaf)
+* VC: Locality of behaviour, all together at source level
+* DSL approach looks promising
+--
+
+== Client-side state/scripting?
+
+* Plain/VanillaJS
+* https://alpinejs.dev/[alpine.js]
+* https://stimulus.hotwired.dev/[stimulus (hotwired)]
+
+[.notes]
+--
+* sometimes client side state/scripting is needed
+* e.g. dropdowns
+* alpine fits well declaratively
+* stimulus controller + declaratively application
+--
+
+// [.columns]
+// == HTMX - the rising star
+//
+// [.column]
+// 2023
+//
+// image::htmx-2023.png[]
+// [.column]
+// 2024
+//
+// image::htmx-2024.png[]
+//
+// [.notes]
+// --
+// * There is a lot of interest in the recent years
+// * the predecessor intercooler.js did not gain that much traction
+// --
