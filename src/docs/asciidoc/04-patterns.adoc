@@ -203,11 +203,89 @@ public void updateNewsFeed(){
 
 image::modal-dialog.png[]
 
+== LLM Chat
+
+== LLM Chat
+
+* Enter a message, clear the input
+* Results might take some time
+* Use Server-Send-Events for dynamic updates
+* Close connection when answer is complete/done
+* Streaming chunks of http is possible
+
+== LLM Chat
+
+[source,html,highlight="1,2|4"]
+----
+<main class="container" hx-ext="sse">
+    <article class="secondary" id="message-box"/>
+</main>
+<form id="msg-form" hx-post="llm-chat">
+    <fieldset role="group" id="msg-form-input">
+        <input name="message" id="message" type="text"/>
+        <input type="submit" value="Send" />
+    </fieldset>
+</form>
+----
+
+[.notes]
+--
+Enable SSE extension
+usual submit button which is doing a post to llm-chat
+this returns directly a new html partial to indicate thinking of the llm
+and starts a request
+--
+
+== LLM Chat
+
+[source,html,highlight="3|4,5,6|7"]
+----
+<article class="llm-message" aria-busy="true"
+    id="llm-answer-${streamIdentifier.toString()}"
+    hx-swap-oob="beforeend:#message-box"
+    sse-connect="/llm-chat/stream/${streamIdentifier.toString()}"
+    sse-swap="message"
+    sse-close="completed"
+    hx-swap="outerHTML">
+    <footer><small>LLM</small></footer>
+</article>
+----
+
+[.notes]
+--
+Updates can be pushed via sse stream, closed when completed
+updates will be swapped on message, replacing the whole element
+--
+
+== LLM Chat
+
+[source,html,highlight="2,3"]
+----
+<article class="llm-message"
+         id="llm-answer-${streamIdentifier.toString()}"
+         hx-swap-oob>
+    ${answer}
+    <footer><small>LLM</small></footer>
+</article>
+----
+
+[.notes]
+--
+This is one complete answer, doing streaming with chunks of html can be done similar 
+--
+
+== LLM Chat
+
+image::llm-chat-1.png[]
+
+== LLM Chat
+
+image::llm-chat-2.png[]
+
 == There is more
 
 * client side event triggers
 * transitions and animations
-* server send events
 * progressive enhancement
 * all declarative
 

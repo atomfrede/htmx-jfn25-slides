@@ -42,20 +42,19 @@ image:jhipster.png[width=200]
 
 [.notes]
 --
-* wonderful family*
-* was on for a triathlon again this year, lets call it a tradition
+* wonderful family
+* letztes mal war es der erste Triathlon, dieses mal das 3. Tradition
 --
 
 == Paderborn
 
-* Geschichte
-* sportlich
 * Promis
 * kulinarisch
 
 [.notes]
 --
 * reich an Gechichte...
+* Ostwestfalen != Ostfalen, darf man den hier bringen oder zu weit weg?
 --
 
 [.transparent-slide]
@@ -63,24 +62,6 @@ image:jhipster.png[width=200]
 === Geschichte
 
 image::dom.jpg[background, size=cover]
-
-[.text-center]
---
-[%step]
-😔
---
-
-[.notes]
---
-* aber wir sind Sportstadt, weit hinausstrahlt...
---
-
-
-[.transparent-slide]
-[%notitle]
-=== Sportlich
-
-image::pyro.jpg[background, size=cover]
 
 [.text-center]
 --
@@ -128,7 +109,7 @@ image::paderborner-pils.jpg[background, size=cover]
 
 [.notes]
 --
-* okay, ich sehe schon, da kommen wir nicht mit
+* okay, lassen wir das mit Paderborn
 --
 
 == Agenda

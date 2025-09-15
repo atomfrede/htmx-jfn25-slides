@@ -437,16 +437,14 @@ ul.byline li + li {
 <section id="_about_me" class="columns"><h2>About Me</h2><div class="slide-content"><div class="ulist column is-two-thirds"><ul><li><p>👨‍👩‍👧‍👦 🏊‍♂️ 🚴 🏃</p></li><li><p>Software Architect @adesso SE</p></li><li><p>JUG Paderborn Co-Organizer</p></li><li><p>JHipster Board Member</p></li></ul></div>
 <div class="paragraph column"><p><span class="image"><img src="images/duke-pb.png" alt="duke pb" width="200"></span>
 <span class="image"><img src="images/jhipster.png" alt="jhipster" width="200"></span></p></div>
-<aside class="notes"><div class="ulist"><ul><li><p>wonderful family*</p></li><li><p>was on for a triathlon again this year, lets call it a tradition</p></li></ul></div></aside></div></section>
-<section><section id="_paderborn"><h2>Paderborn</h2><div class="slide-content"><div class="ulist"><ul><li><p>Geschichte</p></li><li><p>sportlich</p></li><li><p>Promis</p></li><li><p>kulinarisch</p></li></ul></div><aside class="notes"><div class="ulist"><ul><li><p>reich an Gechichte&#8230;&#8203;</p></li></ul></div></aside></div></section><section id="_geschichte" class="transparent-slide" data-background-image="images/dom.jpg" data-background-size="cover"><div class="slide-content">
-<div class="openblock text-center"><div class="content"><div class="paragraph fragment"><p>😔</p></div></div></div>
-<aside class="notes"><div class="ulist"><ul><li><p>aber wir sind Sportstadt, weit hinausstrahlt&#8230;&#8203;</p></li></ul></div></aside></div></section><section id="_sportlich" class="transparent-slide" data-background-image="images/pyro.jpg" data-background-size="cover"><div class="slide-content">
+<aside class="notes"><div class="ulist"><ul><li><p>wonderful family</p></li><li><p>letztes mal war es der erste Triathlon, dieses mal das 3. Tradition</p></li></ul></div></aside></div></section>
+<section><section id="_paderborn"><h2>Paderborn</h2><div class="slide-content"><div class="ulist"><ul><li><p>Promis</p></li><li><p>kulinarisch</p></li></ul></div><aside class="notes"><div class="ulist"><ul><li><p>reich an Gechichte&#8230;&#8203;</p></li><li><p>Ostwestfalen != Ostfalen, darf man den hier bringen oder zu weit weg?</p></li></ul></div></aside></div></section><section id="_geschichte" class="transparent-slide" data-background-image="images/dom.jpg" data-background-size="cover"><div class="slide-content">
 <div class="openblock text-center"><div class="content"><div class="paragraph fragment"><p>😔</p></div></div></div>
 <aside class="notes"><div class="ulist"><ul><li><p>okay, aber promis, viele tolle Menschen kommen aus Padeborn</p></li></ul></div></aside></div></section><section id="_promis" class="transparent-slide" data-background-image="images/linnemann.jpg" data-background-size="cover"><div class="slide-content">
 <div class="openblock text-center"><div class="content"><div class="paragraph fragment"><p>😔</p></div></div></div>
 <aside class="notes"><div class="ulist"><ul><li><p>okay, aber kulinarisch sind wir eine Hochburg</p></li></ul></div></aside></div></section><section id="_kulinarisch" class="transparent-slide" data-background-image="images/paderborner-pils.jpg" data-background-size="cover"><div class="slide-content">
 <div class="openblock text-center"><div class="content"><div class="paragraph fragment"><p>😔</p></div></div></div></div></section><section id="_paderborn_2"><h2>Paderborn</h2><div class="slide-content"><div class="paragraph"><p>&#8230;&#8203;😔</p></div>
-<aside class="notes"><div class="ulist"><ul><li><p>okay, ich sehe schon, da kommen wir nicht mit</p></li></ul></div></aside></div></section></section>
+<aside class="notes"><div class="ulist"><ul><li><p>okay, lassen wir das mit Paderborn</p></li></ul></div></aside></div></section></section>
 <section id="_agenda"><h2>Agenda</h2><div class="slide-content"><div class="olist arabic"><ol class="arabic"><li><p>Modern Frontend Development</p></li><li><p>Hypermedia</p></li><li><p>HTMX, JTE</p></li><li><p>HTMX Patterns</p></li><li><p>Conclusion</p></li></ol></div>
 <aside class="notes"><div class="ulist"><ul><li><p>Modern frontend development &amp; complexity</p></li><li><p>What is hypermedia &amp; hypermedia controls</p></li><li><p>Why JTE, What is HTMX?</p></li><li><p>Typical patterns involved in typical web applications</p></li><li><p>Conclusion</p></li></ul></div></aside></div></section>
 <section id="_1_modern_frontend_development"><h2>1. Modern Frontend Development</h2></section>
@@ -608,7 +606,42 @@ public void updateNewsFeed(){
     hx-trigger="click"
     class="btn primary"&gt;Open Modal&lt;/button&gt;</code></pre></div></div></div></section>
 <section id="_modal_dialogs_4"><h2>Modal dialogs</h2><div class="slide-content"><div class="imageblock"><img src="images/modal-dialog.png" alt="modal dialog"></div></div></section>
-<section id="_there_is_more"><h2>There is more</h2><div class="slide-content"><div class="ulist"><ul><li><p>client side event triggers</p></li><li><p>transitions and animations</p></li><li><p>server send events</p></li><li><p>progressive enhancement</p></li><li><p>all declarative</p></li></ul></div>
+<section id="_llm_chat"><h2>LLM Chat</h2></section>
+<section id="_llm_chat_2"><h2>LLM Chat</h2><div class="slide-content"><div class="ulist"><ul><li><p>Enter a message, clear the input</p></li><li><p>Results might take some time</p></li><li><p>Use Server-Send-Events for dynamic updates</p></li><li><p>Close connection when answer is complete/done</p></li><li><p>Streaming chunks of http is possible</p></li></ul></div></div></section>
+<section id="_llm_chat_3"><h2>LLM Chat</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-html hljs" data-noescape="true" data-line-numbers="1,2|4" data-lang="html">&lt;main class="container" hx-ext="sse"&gt;
+    &lt;article class="secondary" id="message-box"/&gt;
+&lt;/main&gt;
+&lt;form id="msg-form" hx-post="llm-chat"&gt;
+    &lt;fieldset role="group" id="msg-form-input"&gt;
+        &lt;input name="message" id="message" type="text"/&gt;
+        &lt;input type="submit" value="Send" /&gt;
+    &lt;/fieldset&gt;
+&lt;/form&gt;</code></pre></div></div>
+<aside class="notes"><div class="paragraph"><p>Enable SSE extension
+usual submit button which is doing a post to llm-chat
+this returns directly a new html partial to indicate thinking of the llm
+and starts a request</p></div></aside></div></section>
+<section id="_llm_chat_4"><h2>LLM Chat</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-html hljs" data-noescape="true" data-line-numbers="3|4,5,6|7" data-lang="html">&lt;article class="llm-message" aria-busy="true"
+    id="llm-answer-${streamIdentifier.toString()}"
+    hx-swap-oob="beforeend:#message-box"
+    sse-connect="/llm-chat/stream/${streamIdentifier.toString()}"
+    sse-swap="message"
+    sse-close="completed"
+    hx-swap="outerHTML"&gt;
+    &lt;footer&gt;&lt;small&gt;LLM&lt;/small&gt;&lt;/footer&gt;
+&lt;/article&gt;</code></pre></div></div>
+<aside class="notes"><div class="paragraph"><p>Updates can be pushed via sse stream, closed when completed
+updates will be swapped on message, replacing the whole element</p></div></aside></div></section>
+<section id="_llm_chat_5"><h2>LLM Chat</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-html hljs" data-noescape="true" data-line-numbers="2,3" data-lang="html">&lt;article class="llm-message"
+         id="llm-answer-${streamIdentifier.toString()}"
+         hx-swap-oob&gt;
+    ${answer}
+    &lt;footer&gt;&lt;small&gt;LLM&lt;/small&gt;&lt;/footer&gt;
+&lt;/article&gt;</code></pre></div></div>
+<aside class="notes"><div class="paragraph"><p>This is one complete answer, doing streaming with chunks of html can be done similar</p></div></aside></div></section>
+<section id="_llm_chat_6"><h2>LLM Chat</h2><div class="slide-content"><div class="imageblock"><img src="images/llm-chat-1.png" alt="llm chat 1"></div></div></section>
+<section id="_llm_chat_7"><h2>LLM Chat</h2><div class="slide-content"><div class="imageblock"><img src="images/llm-chat-2.png" alt="llm chat 2"></div></div></section>
+<section id="_there_is_more"><h2>There is more</h2><div class="slide-content"><div class="ulist"><ul><li><p>client side event triggers</p></li><li><p>transitions and animations</p></li><li><p>progressive enhancement</p></li><li><p>all declarative</p></li></ul></div>
 <aside class="notes"><div class="ulist"><ul><li><p>but do not use hx-boost</p></li><li><p>as hypermedia exchanges are used you could strive for no-js enabled with reduced feature set/less comfort</p></li><li><p>e.g. forms, paging just uses regular links and replacing the whole page</p></li></ul></div></aside></div></section>
 <section id="_5_conclusion"><h2>5. Conclusion</h2></section>
 <section id="_does_it_spark_joy_4"><h2>Does it spark joy?</h2><div class="slide-content"><div class="ulist"><ul><li><p>removed a lot of complexity</p></li><li><p>pushed the barrier for SPAs further</p></li><li><p>ability to move faster (no contracts)</p></li><li><p>invest in long living, framework-agnostic tech(niques)</p></li><li><p>team(s) are not split</p></li></ul></div>

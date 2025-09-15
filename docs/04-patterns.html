@@ -515,7 +515,42 @@ public void updateNewsFeed(){
     hx-trigger="click"
     class="btn primary"&gt;Open Modal&lt;/button&gt;</code></pre></div></div></div></section>
 <section id="_modal_dialogs_4"><h2>Modal dialogs</h2><div class="slide-content"><div class="imageblock"><img src="modal-dialog.png" alt="modal dialog"></div></div></section>
-<section id="_there_is_more"><h2>There is more</h2><div class="slide-content"><div class="ulist"><ul><li><p>client side event triggers</p></li><li><p>transitions and animations</p></li><li><p>server send events</p></li><li><p>progressive enhancement</p></li><li><p>all declarative</p></li></ul></div>
+<section id="_llm_chat"><h2>LLM Chat</h2></section>
+<section id="_llm_chat_2"><h2>LLM Chat</h2><div class="slide-content"><div class="ulist"><ul><li><p>Enter a message, clear the input</p></li><li><p>Results might take some time</p></li><li><p>Use Server-Send-Events for dynamic updates</p></li><li><p>Close connection when answer is complete/done</p></li><li><p>Streaming chunks of http is possible</p></li></ul></div></div></section>
+<section id="_llm_chat_3"><h2>LLM Chat</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlight"><code class="language-html" data-lang="html">&lt;main class="container" hx-ext="sse"&gt;
+    &lt;article class="secondary" id="message-box"/&gt;
+&lt;/main&gt;
+&lt;form id="msg-form" hx-post="llm-chat"&gt;
+    &lt;fieldset role="group" id="msg-form-input"&gt;
+        &lt;input name="message" id="message" type="text"/&gt;
+        &lt;input type="submit" value="Send" /&gt;
+    &lt;/fieldset&gt;
+&lt;/form&gt;</code></pre></div></div>
+<aside class="notes"><div class="paragraph"><p>Enable SSE extension
+usual submit button which is doing a post to llm-chat
+this returns directly a new html partial to indicate thinking of the llm
+and starts a request</p></div></aside></div></section>
+<section id="_llm_chat_4"><h2>LLM Chat</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlight"><code class="language-html" data-lang="html">&lt;article class="llm-message" aria-busy="true"
+    id="llm-answer-${streamIdentifier.toString()}"
+    hx-swap-oob="beforeend:#message-box"
+    sse-connect="/llm-chat/stream/${streamIdentifier.toString()}"
+    sse-swap="message"
+    sse-close="completed"
+    hx-swap="outerHTML"&gt;
+    &lt;footer&gt;&lt;small&gt;LLM&lt;/small&gt;&lt;/footer&gt;
+&lt;/article&gt;</code></pre></div></div>
+<aside class="notes"><div class="paragraph"><p>Updates can be pushed via sse stream, closed when completed
+updates will be swapped on message, replacing the whole element</p></div></aside></div></section>
+<section id="_llm_chat_5"><h2>LLM Chat</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlight"><code class="language-html" data-lang="html">&lt;article class="llm-message"
+         id="llm-answer-${streamIdentifier.toString()}"
+         hx-swap-oob&gt;
+    ${answer}
+    &lt;footer&gt;&lt;small&gt;LLM&lt;/small&gt;&lt;/footer&gt;
+&lt;/article&gt;</code></pre></div></div>
+<aside class="notes"><div class="paragraph"><p>This is one complete answer, doing streaming with chunks of html can be done similar</p></div></aside></div></section>
+<section id="_llm_chat_6"><h2>LLM Chat</h2><div class="slide-content"><div class="imageblock"><img src="llm-chat-1.png" alt="llm chat 1"></div></div></section>
+<section id="_llm_chat_7"><h2>LLM Chat</h2><div class="slide-content"><div class="imageblock"><img src="llm-chat-2.png" alt="llm chat 2"></div></div></section>
+<section id="_there_is_more"><h2>There is more</h2><div class="slide-content"><div class="ulist"><ul><li><p>client side event triggers</p></li><li><p>transitions and animations</p></li><li><p>progressive enhancement</p></li><li><p>all declarative</p></li></ul></div>
 <aside class="notes"><div class="ulist"><ul><li><p>but do not use hx-boost</p></li><li><p>as hypermedia exchanges are used you could strive for no-js enabled with reduced feature set/less comfort</p></li><li><p>e.g. forms, paging just uses regular links and replacing the whole page</p></li></ul></div></aside></div></section></div></div><script src="reveal/dist/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
   if (slide.getAttribute('data-background-color')) return;
   // user needs to explicitly say he wants CSS color to override otherwise we might break custom css or theme (#226)
