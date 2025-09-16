@@ -57,11 +57,6 @@ image:jhipster.png[width=200]
 * Ostwestfalen != Ostfalen, darf man den hier bringen oder zu weit weg?
 --
 
-[.notes]
---
-* okay, aber promis, viele tolle Menschen kommen aus Padeborn
---
-
 [.transparent-slide]
 [%notitle]
 === Promis
