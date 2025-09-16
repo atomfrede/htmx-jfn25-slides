@@ -53,20 +53,8 @@ image:jhipster.png[width=200]
 
 [.notes]
 --
-* reich an Gechichte...
+* Kommt mal in PB vorbei, tolle stadt, tolle jug und wenn es nicht reicht, Promis, ganz viele Promis
 * Ostwestfalen != Ostfalen, darf man den hier bringen oder zu weit weg?
---
-
-[.transparent-slide]
-[%notitle]
-=== Geschichte
-
-image::dom.jpg[background, size=cover]
-
-[.text-center]
---
-[%step]
-😔
 --
 
 [.notes]
